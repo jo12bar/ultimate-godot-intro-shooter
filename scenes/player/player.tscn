@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bytfk3k0l4qmt"]
+
+[ext_resource type="Texture2D" uid="uid://bi631fvh01s44" path="res://graphics/player/player.png" id="1_dovo2"]
+[ext_resource type="Script" uid="uid://c8e3pp8ot1p22" path="res://scenes/player/player.gd" id="1_gmlin"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vebn6"]
+radius = 58.0
+
+[node name="Player" type="CharacterBody2D" unique_id=683372369]
+script = ExtResource("1_gmlin")
+
+[node name="PlayerImage" type="Sprite2D" parent="." unique_id=197715947]
+rotation = 1.5707964
+texture = ExtResource("1_dovo2")
+offset = Vector2(3, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1446604557]
+shape = SubResource("CircleShape2D_vebn6")
+
+[node name="LaserReloadTimer" type="Timer" parent="." unique_id=1482524304]
+wait_time = 0.5
+one_shot = true
+
+[node name="GrenadeReloadTimer" type="Timer" parent="." unique_id=303396695]
+wait_time = 2.0
+one_shot = true
+
+[node name="LaserStartPositions" type="Node2D" parent="." unique_id=1671603483]
+rotation = 1.5707964
+
+[node name="LaserStartPositionMarker1" type="Marker2D" parent="LaserStartPositions" unique_id=1932318242]
+position = Vector2(22, -136)
+
+[node name="LaserStartPositionMarker2" type="Marker2D" parent="LaserStartPositions" unique_id=1022496757]
+position = Vector2(14, -133)
+
+[node name="LaserStartPositionMarker3" type="Marker2D" parent="LaserStartPositions" unique_id=844473564]
+position = Vector2(30, -133)
+
+[node name="GrenadeStartPositions" type="Node2D" parent="." unique_id=375970864]
+rotation = 1.5707964
+
+[node name="GrenadeStartPositionMarker1" type="Marker2D" parent="GrenadeStartPositions" unique_id=1131095143]
+position = Vector2(22, -136)
+
+[node name="GrenadeStartPositionMarker2" type="Marker2D" parent="GrenadeStartPositions" unique_id=2124618899]
+position = Vector2(14, -133)
+
+[node name="GrenadeStartPositionMarker3" type="Marker2D" parent="GrenadeStartPositions" unique_id=310696041]
+position = Vector2(30, -133)
+
+[connection signal="timeout" from="LaserReloadTimer" to="." method="_on_laser_reload_timer_timeout"]
+[connection signal="timeout" from="GrenadeReloadTimer" to="." method="_on_grenade_reload_timer_timeout"]
