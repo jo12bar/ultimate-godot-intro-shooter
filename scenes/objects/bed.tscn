@@ -8,6 +8,8 @@
 size = Vector2(628, 362)
 
 [node name="Bed" type="StaticBody2D" unique_id=1722935274]
+collision_layer = 4
+collision_mask = 11
 
 [node name="BedImage" type="Sprite2D" parent="." unique_id=307646558]
 texture = ExtResource("1_g5a0r")
