@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://tohbji1o257r" path="res://graphics/decals/moss/moss_5.png" id="8_8iyoh"]
 [ext_resource type="Texture2D" uid="uid://c8etjj3bnjcp0" path="res://graphics/tilesets/outside_walls.png" id="9_7pb6i"]
 [ext_resource type="PackedScene" uid="uid://cie25ofrypv54" path="res://scenes/houses/house.tscn" id="11_qogh7"]
+[ext_resource type="PackedScene" uid="uid://b8jhnjgkdkgle" path="res://scenes/objects/steam_vent.tscn" id="12_8iyoh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xfk5q"]
 resource_name = "walls"
@@ -204,6 +205,12 @@ tile_set = SubResource("TileSet_vebn6")
 [node name="House" parent="Ground" unique_id=29977331 instance=ExtResource("11_qogh7")]
 position = Vector2(-712.0002, 2959)
 rotation = -2.568665
+
+[node name="SteamVent" parent="Ground" unique_id=278544058 instance=ExtResource("12_8iyoh")]
+position = Vector2(-15, 466)
+
+[node name="SteamVent2" parent="Ground" unique_id=2105638615 instance=ExtResource("12_8iyoh")]
+position = Vector2(1100, 466)
 
 [node name="Gate" parent="." unique_id=346200515 instance=ExtResource("2_b2cq8")]
 position = Vector2(583, -418)
