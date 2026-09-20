@@ -9,6 +9,9 @@ signal laser_fired(spawn_pos: Vector2, direction: Vector2)
 ## direction that the grenade is being fired in.
 signal grenade_fired(spawn_pos: Vector2, direction: Vector2)
 
+@export var max_speed: float = 500
+var speed: float = max_speed
+
 var can_laser: bool = true
 var can_grenade: bool = true
 
@@ -59,7 +62,7 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	# Movement
 	var direction := Input.get_vector("left", "right", "up", "down")
-	velocity = direction * 500.0
+	velocity = direction * speed
 	
 	# Rotation
 	look_at(get_global_mouse_position())

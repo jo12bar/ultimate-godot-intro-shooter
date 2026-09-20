@@ -4,10 +4,13 @@ const LASER_SCENE: PackedScene = preload("res://scenes/projectiles/laser.tscn")
 const GRENADE_SCENE: PackedScene = preload("res://scenes/projectiles/grenade.tscn")
 
 @onready var projectiles: Node2D = $Projectiles
+@onready var player: CharacterBody2D = $Player
+@onready var player_camera: Camera2D = $Player/Camera2D
 
 
-func _on_gate_player_entered_gate(body: Node2D) -> void:
-	print("player %s has entered gate" % body)
+func _on_gate_player_entered_gate(_body: Node2D) -> void:
+	var tween := get_tree().create_tween()
+	tween.tween_property(player, "speed", 0, 0.5)
 
 
 func _on_player_laser_fired(spawn_pos: Vector2, direction: Vector2) -> void:
@@ -31,3 +34,15 @@ func _on_player_grenade_fired(spawn_pos: Vector2, direction: Vector2) -> void:
 	
 	# add the grenade instance to a Node2D
 	projectiles.add_child(grenade)
+
+
+func _on_house_player_entered() -> void:
+	var tween := get_tree().create_tween()
+	#tween.set_parallel(true)
+	tween.tween_property(player_camera, "zoom", Vector2(1, 1), 1).set_trans(Tween.TRANS_QUAD)
+	#tween.tween_property($Player as Node2D, "modulate:a", 0, 2)
+
+
+func _on_house_player_exited() -> void:
+	var tween := get_tree().create_tween()
+	tween.tween_property(player_camera, "zoom", Vector2(0.6, 0.6), 1).set_trans(Tween.TRANS_QUAD)
