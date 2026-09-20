@@ -217,4 +217,6 @@ position = Vector2(-91, 2819)
 [node name="Gate" parent="." index="1" unique_id=346200515 instance=ExtResource("2_x73sx")]
 position = Vector2(616, -428)
 
+[connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
+[connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]

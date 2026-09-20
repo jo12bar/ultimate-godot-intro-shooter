@@ -31,13 +31,16 @@ shadow_enabled = true
 shadow_color = Color(0, 0.0125, 0.05, 0.02745098)
 shadow_filter = 1
 shadow_filter_smooth = 0.7
+shadow_item_cull_mask = 15
 texture = ExtResource("2_o1l1r")
 texture_scale = 5.06
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1413972736]
 occluder = SubResource("OccluderPolygon2D_dsunj")
+occluder_light_mask = 4
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="." unique_id=515653382]
 position = Vector2(-1, 0)
 scale = Vector2(-1, 1)
 occluder = SubResource("OccluderPolygon2D_dsunj")
+occluder_light_mask = 4

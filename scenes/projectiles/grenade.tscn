@@ -266,6 +266,7 @@ shadow_enabled = true
 shadow_color = Color(0.07031613, 0.0029729498, 0.0018154287, 0.019607844)
 shadow_filter = 1
 shadow_filter_smooth = 9.8
+shadow_item_cull_mask = 15
 texture = ExtResource("4_oqjs3")
 texture_scale = 0.5
 

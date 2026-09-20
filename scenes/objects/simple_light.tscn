@@ -28,6 +28,7 @@ shadow_enabled = true
 shadow_color = Color(0.013972285, 0.08387371, 0.2950884, 0.019607844)
 shadow_filter = 1
 shadow_filter_smooth = 0.8
+shadow_item_cull_mask = 15
 texture = ExtResource("2_1uh05")
 texture_scale = 2.0
 
