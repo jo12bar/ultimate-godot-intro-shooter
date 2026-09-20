@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bwu363elg56s1" path="res://graphics/decals/moss/moss_1.png" id="4_rmjfq"]
 [ext_resource type="Texture2D" uid="uid://bgqfxogfsgswk" path="res://graphics/tilesets/soil.png" id="4_xfk5q"]
 [ext_resource type="Texture2D" uid="uid://cl0oghvy0fv56" path="res://graphics/decals/moss/moss_2.png" id="5_7pb6i"]
+[ext_resource type="PackedScene" uid="uid://cobmj3luj1wtx" path="res://scenes/enemies/drone.tscn" id="5_urvlt"]
 [ext_resource type="Texture2D" uid="uid://bwyki2wwm2ril" path="res://graphics/decals/moss/moss_3.png" id="6_xfk5q"]
 [ext_resource type="Texture2D" uid="uid://cq7oqhxds6nkr" path="res://graphics/decals/moss/moss_4.png" id="7_qogh7"]
 [ext_resource type="Texture2D" uid="uid://tohbji1o257r" path="res://graphics/decals/moss/moss_5.png" id="8_8iyoh"]
@@ -229,6 +230,9 @@ position_smoothing_enabled = true
 
 [node name="Projectiles" type="Node2D" parent="." unique_id=628488564]
 metadata/_edit_lock_ = true
+
+[node name="Drone" parent="." unique_id=2113487497 instance=ExtResource("5_urvlt")]
+position = Vector2(177, 711)
 
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
 [connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
