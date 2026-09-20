@@ -14,6 +14,7 @@ var can_grenade: bool = true
 
 @onready var laser_reload_timer: Timer = $LaserReloadTimer
 @onready var laser_start_positions: Node2D = $LaserStartPositions
+@onready var laser_particles: GPUParticles2D = $LaserParticles
 @onready var grenade_reload_timer: Timer = $GrenadeReloadTimer
 @onready var grenade_start_positions: Node2D = $GrenadeStartPositions
 
@@ -34,6 +35,9 @@ func _process(_delta: float) -> void:
 		
 		# Emit laser fired signal with the position we selected
 		laser_fired.emit(selected_marker.global_position, player_direction)
+		
+		# Fire particles
+		laser_particles.restart()
 	
 	# Grenade shooting input
 	if Input.is_action_pressed("secondary_action") and can_grenade:
