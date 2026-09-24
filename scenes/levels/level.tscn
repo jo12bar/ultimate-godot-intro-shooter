@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cyl8os4e0cxua" path="res://scenes/levels/level.gd" id="1_b2cq8"]
 [ext_resource type="PackedScene" uid="uid://bytfk3k0l4qmt" path="res://scenes/player/player.tscn" id="3_b2cq8"]
+[ext_resource type="PackedScene" uid="uid://byd0i3qd1soxd" path="res://scenes/user_interface/ui.tscn" id="3_xb4v1"]
 
 [node name="Level" type="Node2D" unique_id=1387007235]
 script = ExtResource("1_b2cq8")
@@ -19,6 +20,8 @@ zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 
 [node name="Lights" type="Node2D" parent="." unique_id=1727337268]
+
+[node name="UI" parent="." unique_id=1303204905 instance=ExtResource("3_xb4v1")]
 
 [connection signal="grenade_fired" from="Player" to="." method="_on_player_grenade_fired"]
 [connection signal="laser_fired" from="Player" to="." method="_on_player_laser_fired"]
