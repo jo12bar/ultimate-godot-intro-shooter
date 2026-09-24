@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://c011150mcekrg" path="res://graphics/ui/bullet.png" id="1_b27rl"]
 [ext_resource type="Theme" uid="uid://bclnqxk4q1jl2" path="res://scenes/user_interface/main_theme.tres" id="1_ppfub"]
 [ext_resource type="Texture2D" uid="uid://chxokoi5gj10u" path="res://graphics/ui/grenade.png" id="2_3wnis"]
+[ext_resource type="Texture2D" uid="uid://b3fgm0qm1n1j1" path="res://graphics/ui/progress_bar/bg.png" id="4_5lvy2"]
+[ext_resource type="Texture2D" uid="uid://cvr5e0l6nmndq" path="res://graphics/ui/progress_bar/over.png" id="5_46rsi"]
+[ext_resource type="Texture2D" uid="uid://vps4iyis8asy" path="res://graphics/ui/progress_bar/progress.png" id="6_mv2h5"]
 
 [node name="UI" type="CanvasLayer" unique_id=1303204905]
 
@@ -60,3 +63,22 @@ horizontal_alignment = 1
 layout_mode = 2
 texture = ExtResource("2_3wnis")
 expand_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1442730143]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -40.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 30
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer" unique_id=1296690704]
+layout_mode = 2
+texture_under = ExtResource("4_5lvy2")
+texture_over = ExtResource("5_46rsi")
+texture_progress = ExtResource("6_mv2h5")
