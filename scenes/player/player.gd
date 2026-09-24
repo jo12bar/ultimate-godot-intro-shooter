@@ -24,7 +24,14 @@ var can_grenade: bool = true
 
 func _process(_delta: float) -> void:
 	# Laser shooting input
-	if Input.is_action_pressed("primary_action") and can_laser:
+	if (
+		Input.is_action_pressed("primary_action")
+		and can_laser
+		and Globals.laser_amount > 0
+	):
+		# Decrease laser ammo
+		Globals.laser_amount -= 1
+		
 		# Start laser cooldown timer
 		can_laser = false
 		laser_reload_timer.start()
@@ -43,7 +50,14 @@ func _process(_delta: float) -> void:
 		laser_particles.restart()
 	
 	# Grenade shooting input
-	if Input.is_action_pressed("secondary_action") and can_grenade:
+	if (
+		Input.is_action_pressed("secondary_action")
+		and can_grenade
+		and Globals.grenade_amount > 0
+	):
+		# Decrease grenade ammo
+		Globals.grenade_amount -= 1
+		
 		# Start grenade cooldown timer
 		can_grenade = false
 		grenade_reload_timer.start()

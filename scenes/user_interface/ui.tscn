@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://byd0i3qd1soxd"]
 
+[ext_resource type="Script" uid="uid://c1en5wsk1we75" path="res://scenes/user_interface/ui.gd" id="1_46rsi"]
 [ext_resource type="Texture2D" uid="uid://c011150mcekrg" path="res://graphics/ui/bullet.png" id="1_b27rl"]
 [ext_resource type="Theme" uid="uid://bclnqxk4q1jl2" path="res://scenes/user_interface/main_theme.tres" id="1_ppfub"]
 [ext_resource type="Texture2D" uid="uid://chxokoi5gj10u" path="res://graphics/ui/grenade.png" id="2_3wnis"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://vps4iyis8asy" path="res://graphics/ui/progress_bar/progress.png" id="6_mv2h5"]
 
 [node name="UI" type="CanvasLayer" unique_id=1303204905]
+script = ExtResource("1_46rsi")
 
 [node name="LaserCounter" type="Control" parent="." unique_id=1574278141]
 layout_mode = 3
@@ -24,7 +26,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="LaserCounter/VBoxContainer" unique_id=753509364]
+[node name="LaserLabel" type="Label" parent="LaserCounter/VBoxContainer" unique_id=753509364]
 layout_mode = 2
 theme = ExtResource("1_ppfub")
 text = "20"
@@ -53,7 +55,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="GrenadeCounter/VBoxContainer" unique_id=641169135]
+[node name="GrenadeLabel" type="Label" parent="GrenadeCounter/VBoxContainer" unique_id=641169135]
 layout_mode = 2
 theme = ExtResource("1_ppfub")
 text = "5"

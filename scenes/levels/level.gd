@@ -7,6 +7,7 @@ const GRENADE_SCENE: PackedScene = preload("res://scenes/projectiles/grenade.tsc
 @onready var projectiles: Node2D = $Projectiles
 @onready var player: CharacterBody2D = $Player
 @onready var player_camera: Camera2D = $Player/Camera2D
+@onready var ui: Ui = $UI
 
 
 func _on_player_laser_fired(spawn_pos: Vector2, direction: Vector2) -> void:
@@ -19,6 +20,9 @@ func _on_player_laser_fired(spawn_pos: Vector2, direction: Vector2) -> void:
 
 	# add the laser instance to a Node2D
 	projectiles.add_child(laser)
+	
+	# update ammo count on screen
+	ui.update_laser_count_display()
 
 
 func _on_player_grenade_fired(spawn_pos: Vector2, direction: Vector2) -> void:
@@ -30,6 +34,9 @@ func _on_player_grenade_fired(spawn_pos: Vector2, direction: Vector2) -> void:
 	
 	# add the grenade instance to a Node2D
 	projectiles.add_child(grenade)
+	
+	# update ammo count on screen
+	ui.update_grenade_count_display()
 
 
 func _on_house_player_entered() -> void:
