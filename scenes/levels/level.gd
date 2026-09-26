@@ -49,3 +49,8 @@ func _on_house_player_entered() -> void:
 func _on_house_player_exited() -> void:
 	var tween := get_tree().create_tween()
 	tween.tween_property(player_camera, "zoom", Vector2(0.6, 0.6), 1).set_trans(Tween.TRANS_QUAD)
+
+
+func _on_player_update_stats() -> void:
+	ui.update_laser_count_display()
+	ui.update_grenade_count_display()

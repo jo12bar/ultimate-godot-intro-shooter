@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 ## Emitted whenever the player fires a laser. [param spawn_pos] is the starting
@@ -8,6 +9,8 @@ signal laser_fired(spawn_pos: Vector2, direction: Vector2)
 ## position for the grenade in global coordinates. [param direction] is the
 ## direction that the grenade is being fired in.
 signal grenade_fired(spawn_pos: Vector2, direction: Vector2)
+
+signal update_stats
 
 @export var max_speed: float = 500
 var speed: float = max_speed
@@ -90,3 +93,12 @@ func _on_laser_reload_timer_timeout() -> void:
 
 func _on_grenade_reload_timer_timeout() -> void:
 	can_grenade = true
+
+
+func add_item(type: Item.ItemType) -> void:
+	if type == Item.ItemType.LASER:
+		Globals.laser_amount += 5
+		update_stats.emit()
+	elif type == Item.ItemType.GRENADE:
+		Globals.grenade_amount += 1
+		update_stats.emit()
