@@ -2,11 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bflrou0aa0n6t" path="res://scenes/objects/item_container.gd" id="1_ika2y"]
 
-[node name="ItemContainer" type="StaticBody2D" unique_id=585794231]
+[node name="ItemContainer" type="StaticBody2D" unique_id=585794231 groups=["Container"]]
 collision_layer = 4
 collision_mask = 11
 script = ExtResource("1_ika2y")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1481342709]
+[node name="BaseSprite" type="Sprite2D" parent="." unique_id=1481342709]
+
+[node name="LidSprite" type="Sprite2D" parent="." unique_id=808867797]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1227092495]
+
+[node name="SpawnPositions" type="Node2D" parent="." unique_id=903930094]

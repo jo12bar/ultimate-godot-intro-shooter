@@ -9,6 +9,8 @@ script = ExtResource("1_b2cq8")
 
 [node name="Ground" type="Node2D" parent="." unique_id=70480391]
 
+[node name="Items" type="Node2D" parent="." unique_id=1706280041]
+
 [node name="Projectiles" type="Node2D" parent="." unique_id=628488564]
 metadata/_edit_lock_ = true
 
