@@ -25,4 +25,3 @@ position_smoothing_enabled = true
 
 [connection signal="grenade_fired" from="Player" to="." method="_on_player_grenade_fired"]
 [connection signal="laser_fired" from="Player" to="." method="_on_player_laser_fired"]
-[connection signal="update_stats" from="Player" to="." method="_on_player_update_stats"]

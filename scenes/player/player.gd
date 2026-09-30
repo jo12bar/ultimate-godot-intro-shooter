@@ -10,8 +10,6 @@ signal laser_fired(spawn_pos: Vector2, direction: Vector2)
 ## direction that the grenade is being fired in.
 signal grenade_fired(spawn_pos: Vector2, direction: Vector2)
 
-signal update_stats
-
 @export var max_speed: float = 500
 var speed: float = max_speed
 
@@ -98,7 +96,5 @@ func _on_grenade_reload_timer_timeout() -> void:
 func add_item(type: Item.ItemType) -> void:
 	if type == Item.ItemType.LASER:
 		Globals.laser_amount += 5
-		update_stats.emit()
 	elif type == Item.ItemType.GRENADE:
 		Globals.grenade_amount += 1
-		update_stats.emit()
