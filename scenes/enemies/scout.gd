@@ -14,6 +14,10 @@ var can_laser: bool = true
 var _cur_laser_spawn_pos_idx: int = 0
 
 
+func hit() -> void:
+	print("scout was hit")
+
+
 func _process(_delta: float) -> void:
 	if player_nearby and can_laser:
 		var laser_spawn_pos := _get_laser_spawn_pos().global_position

@@ -23,6 +23,10 @@ var can_grenade: bool = true
 @onready var grenade_start_positions: Node2D = $GrenadeStartPositions
 
 
+func hit() -> void:
+	print("player was hit")
+
+
 func _process(_delta: float) -> void:
 	# Laser shooting input
 	if (
