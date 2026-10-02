@@ -26,6 +26,7 @@ var laser_amount: int = 20:
 		laser_amount = value
 		laser_amount_changed.emit(old_amount, laser_amount)
 
+
 var grenade_amount: int = 5:
 	get:
 		return grenade_amount
@@ -34,12 +35,30 @@ var grenade_amount: int = 5:
 		grenade_amount = value
 		grenade_amount_changed.emit(old_amount, grenade_amount)
 
+
+var player_can_get_hit: bool = true
+
+const PLAYER_MAX_HEALTH: int = 100
+const PLAYER_MIN_HEALTH: int = 0
+
 var health: int = 60:
 	get:
 		return health
 	set(value):
 		var old_health := health
-		health = value
-		health_changed.emit(old_health, health)
+		if value > old_health:
+			health = min(value, PLAYER_MAX_HEALTH)
+			health_changed.emit(old_health, health)
+		elif player_can_get_hit:
+			health = value
+			player_can_get_hit = false
+			start_player_invulnerability_timer()
+			health_changed.emit(old_health, health)
+
 
 var player_position: Vector2
+
+
+func start_player_invulnerability_timer() -> void:
+	await get_tree().create_timer(0.5).timeout
+	player_can_get_hit = true

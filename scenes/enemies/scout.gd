@@ -20,7 +20,6 @@ var _cur_laser_spawn_pos_idx: int = 0
 
 func hit() -> void:
 	if can_get_hit:
-		print("ouch (old_health=%d, new_health=%d)" % [health, health - 10])
 		health -= 10
 		if health <= 0:
 			queue_free()
