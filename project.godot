@@ -30,6 +30,8 @@ window/stretch/aspect="expand"
 [global_group]
 
 Container="For item-containing containers (typically anything inheriting from ItemContainer.tscn)"
+Scouts="For scout enemies"
+Entity="For entities that can be hit by things"
 
 [input]
 

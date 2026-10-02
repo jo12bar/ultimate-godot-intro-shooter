@@ -15,6 +15,9 @@ const ITEM_SCENE: PackedScene = preload("res://scenes/items/item.tscn")
 func _ready() -> void:
 	for container in get_tree().get_nodes_in_group("Container"):
 		container.connect("container_opened", _on_container_opened)
+	
+	for scout in get_tree().get_nodes_in_group("Scouts"):
+		scout.connect("laser_fired", _on_scout_laser_fired)
 
 
 func _on_container_opened(pos: Vector2, direction: Vector2) -> void:
@@ -26,15 +29,7 @@ func _on_container_opened(pos: Vector2, direction: Vector2) -> void:
 
 
 func _on_player_laser_fired(spawn_pos: Vector2, direction: Vector2) -> void:
-	var laser: Node2D = LASER_SCENE.instantiate()
-
-	# set laser position so it comes from the player's gun
-	laser.position = spawn_pos
-	laser.rotation = direction.angle() + PI/2.0
-	laser.direction = direction
-
-	# add the laser instance to a Node2D
-	projectiles.add_child(laser)
+	fire_laser(spawn_pos, direction)
 
 
 func _on_player_grenade_fired(spawn_pos: Vector2, direction: Vector2) -> void:
@@ -46,3 +41,19 @@ func _on_player_grenade_fired(spawn_pos: Vector2, direction: Vector2) -> void:
 
 	# add the grenade instance to a Node2D
 	projectiles.add_child(grenade)
+
+
+func _on_scout_laser_fired(spawn_pos: Vector2, direction: Vector2) -> void:
+	fire_laser(spawn_pos, direction)
+
+
+func fire_laser(spawn_pos: Vector2, direction: Vector2) -> void:
+	var laser: Node2D = LASER_SCENE.instantiate()
+
+	# set laser position so it comes from the correct location
+	laser.position = spawn_pos
+	laser.rotation = direction.angle() + PI/2.0
+	laser.direction = direction
+
+	# add the laser instance to a Node2D
+	projectiles.add_child(laser)

@@ -41,3 +41,5 @@ var health: int = 60:
 		var old_health := health
 		health = value
 		health_changed.emit(old_health, health)
+
+var player_position: Vector2

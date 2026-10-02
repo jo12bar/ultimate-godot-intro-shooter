@@ -83,6 +83,8 @@ func _physics_process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
 	
 	move_and_slide()
+	
+	Globals.player_position = global_position
 
 
 func _on_laser_reload_timer_timeout() -> void:
