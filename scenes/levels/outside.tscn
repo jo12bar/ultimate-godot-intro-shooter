@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://cie25ofrypv54" path="res://scenes/houses/house.tscn" id="11_oe17f"]
 [ext_resource type="PackedScene" uid="uid://b8jhnjgkdkgle" path="res://scenes/objects/steam_vent.tscn" id="12_lbwx5"]
 [ext_resource type="PackedScene" uid="uid://dgsj53kalur3n" path="res://scenes/objects/light_fan_animation.tscn" id="13_ddemh"]
-[ext_resource type="PackedScene" uid="uid://dk4yh2w64lhr2" path="res://scenes/items/item.tscn" id="17_uaeil"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vkmey"]
 resource_name = "walls"
@@ -54,6 +53,10 @@ sources/1 = SubResource("TileSetAtlasSource_2ngmq")
 [node name="Outside" unique_id=1387007235 instance=ExtResource("1_2s4ok")]
 script = ExtResource("2_ex6t8")
 inside_level_scene = ExtResource("3_x30qc")
+
+[node name="Gate" parent="." index="1" unique_id=346200515 instance=ExtResource("2_x73sx")]
+z_index = 1
+position = Vector2(548, -428)
 
 [node name="Soil" type="Sprite2D" parent="Ground" parent_id_path=PackedInt32Array(70480391) index="0" unique_id=239027857]
 texture_repeat = 2
@@ -217,12 +220,6 @@ position = Vector2(1100, 466)
 [node name="LightFanAnimation" parent="Ground" parent_id_path=PackedInt32Array(70480391) index="7" unique_id=1453942153 instance=ExtResource("13_ddemh")]
 position = Vector2(-91, 2819)
 
-[node name="Gate" parent="." index="1" unique_id=346200515 instance=ExtResource("2_x73sx")]
-position = Vector2(548, -428)
-
-[node name="Item" parent="." index="2" unique_id=672121733 instance=ExtResource("17_uaeil")]
-position = Vector2(132, 874)
-
+[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
 [connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
-[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]

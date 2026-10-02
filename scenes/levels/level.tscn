@@ -7,7 +7,11 @@
 [node name="Level" type="Node2D" unique_id=1387007235]
 script = ExtResource("1_b2cq8")
 
+[node name="Decals" type="Node2D" parent="." unique_id=67542808]
+
 [node name="Ground" type="Node2D" parent="." unique_id=70480391]
+
+[node name="Infestation" type="Node2D" parent="." unique_id=1650811366]
 
 [node name="Items" type="Node2D" parent="." unique_id=1706280041]
 
@@ -15,6 +19,7 @@ script = ExtResource("1_b2cq8")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1721516042 instance=ExtResource("3_b2cq8")]
+z_index = 2
 position = Vector2(566, 545)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=786032039]
