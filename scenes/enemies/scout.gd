@@ -11,6 +11,7 @@ var player_nearby: bool = false
 var can_get_hit: bool = true
 var can_laser: bool = true
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hit_invulnerability_timer: Timer = $Timers/HitInvulnerabilityTimer
 @onready var laser_cooldown_timer: Timer = $Timers/LaserCooldownTimer
 @onready var laser_spawn_positions: Node2D = $LaserSpawnPositions
@@ -26,6 +27,7 @@ func hit() -> void:
 		else:
 			can_get_hit = false
 			hit_invulnerability_timer.start()
+			animation_player.play("invulnerability_blink")
 
 
 func _process(_delta: float) -> void:
@@ -58,7 +60,6 @@ func _get_laser_spawn_pos() -> Marker2D:
 	if _cur_laser_spawn_pos_idx >= num_possible_positions:
 		_cur_laser_spawn_pos_idx = 0
 	return laser_spawn_positions.get_child(_cur_laser_spawn_pos_idx)
-pass # Replace with function body.
 
 
 func _on_laser_cooldown_timer_timeout() -> void:
@@ -67,3 +68,5 @@ func _on_laser_cooldown_timer_timeout() -> void:
 
 func _on_hit_invulnerability_timer_timeout() -> void:
 	can_get_hit = true
+	animation_player.stop()
+	animation_player.play("RESET")
