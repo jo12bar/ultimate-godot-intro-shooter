@@ -23,8 +23,8 @@ var can_grenade: bool = true
 @onready var grenade_start_positions: Node2D = $GrenadeStartPositions
 
 
-func hit() -> void:
-	Globals.health -= 10
+func hit(damage_amount: int = 10) -> void:
+	Globals.health -= damage_amount
 
 
 func _process(_delta: float) -> void:
@@ -36,24 +36,24 @@ func _process(_delta: float) -> void:
 	):
 		# Decrease laser ammo
 		Globals.laser_amount -= 1
-		
+
 		# Start laser cooldown timer
 		can_laser = false
 		laser_reload_timer.start()
-		
+
 		# Randomly select a laser start position
 		var laser_markers := laser_start_positions.get_children()
 		var selected_marker: Node2D = laser_markers[randi() % laser_markers.size()]
-		
+
 		# Figure out which way to fire the laser
 		var player_direction = global_transform.x
-		
+
 		# Emit laser fired signal with the position we selected
 		laser_fired.emit(selected_marker.global_position, player_direction)
-		
+
 		# Fire particles
 		laser_particles.restart()
-	
+
 	# Grenade shooting input
 	if (
 		Input.is_action_pressed("secondary_action")
@@ -62,18 +62,18 @@ func _process(_delta: float) -> void:
 	):
 		# Decrease grenade ammo
 		Globals.grenade_amount -= 1
-		
+
 		# Start grenade cooldown timer
 		can_grenade = false
 		grenade_reload_timer.start()
-		
+
 		# Randomly select a grenade start position
 		var grenade_markers := grenade_start_positions.get_children()
 		var selected_marker: Node2D = grenade_markers[randi() % grenade_markers.size()]
-		
+
 		# Figure out which way to fire the grenade
 		var player_direction = global_transform.x
-		
+
 		# Emit grenade fired signal with the position we selected
 		grenade_fired.emit(selected_marker.global_position, player_direction)
 
@@ -82,12 +82,12 @@ func _physics_process(_delta: float) -> void:
 	# Movement
 	var direction := Input.get_vector("left", "right", "up", "down")
 	velocity = direction * speed
-	
+
 	# Rotation
 	look_at(get_global_mouse_position())
-	
+
 	move_and_slide()
-	
+
 	Globals.player_position = global_position
 
 

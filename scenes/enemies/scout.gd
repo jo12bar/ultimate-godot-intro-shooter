@@ -34,10 +34,10 @@ func _process(_delta: float) -> void:
 	if player_nearby and can_laser:
 		var laser_spawn_pos := _get_laser_spawn_pos().global_position
 		var laser_spawn_dir := (Globals.player_position - laser_spawn_pos).normalized()
-		
+
 		laser_fired.emit(laser_spawn_pos, laser_spawn_dir)
 		can_laser = false
-		
+
 		laser_cooldown_timer.start()
 
 

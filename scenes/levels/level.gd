@@ -15,7 +15,7 @@ const ITEM_SCENE: PackedScene = preload("res://scenes/items/item.tscn")
 func _ready() -> void:
 	for container in get_tree().get_nodes_in_group("Container"):
 		container.connect("container_opened", _on_container_opened)
-	
+
 	for scout in get_tree().get_nodes_in_group("Scouts"):
 		scout.connect("laser_fired", _on_scout_laser_fired)
 

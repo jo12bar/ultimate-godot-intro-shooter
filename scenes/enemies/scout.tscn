@@ -2,9 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://boaec7v3k84fn" path="res://graphics/enemies/scout.png" id="1_i70sm"]
 [ext_resource type="Script" uid="uid://bnetyf27eyrhm" path="res://scenes/enemies/scout.gd" id="1_ns734"]
-[ext_resource type="Shader" uid="uid://dijspwja6t5yq" path="res://scenes/enemies/scout.gdshader" id="2_08kc0"]
+[ext_resource type="Shader" uid="uid://dijspwja6t5yq" path="res://scenes/enemies/modulate_color.gdshader" id="2_08kc0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gmlin"]
+resource_local_to_scene = true
 shader = ExtResource("2_08kc0")
 shader_parameter/color = Color(0.65, 0.9183334, 1, 1)
 shader_parameter/progress = 0.0
